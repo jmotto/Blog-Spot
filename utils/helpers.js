@@ -8,7 +8,7 @@ module.exports = {
       return parseInt(amount).toLocaleString();
     },
     get_emoji: () => {
-      const randomNum = Math.random();
+      const randomNum = Math.random(); 
   
       // Return a random emoji
       if (randomNum > 0.7) {
