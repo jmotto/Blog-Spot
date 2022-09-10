@@ -34,4 +34,4 @@ router.delete('/:id', withAuth, async (req,res) => {
     }
 });
 
-models.exports = router;
+module.exports = router;
