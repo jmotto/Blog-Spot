@@ -4,15 +4,16 @@ const { User } = require('../../models');
 // CREATE new user
 router.post('/', async (req, res) => {
   try {
-    const dbUserData = await User.create({
-      username: req.body.username,
-      password: req.body.password,
-    });
+    const userData = await User.create(req.body);
+      // username: req.body.username,
+      // password: req.body.password,
+    
 
     req.session.save(() => {
+      req.session.user_id = userData.id;
       req.session.logged_in = true;
 
-      res.status(200).json(dbUserData);
+      res.status(200).json(userData);
     });
   } catch (err) {
     console.log(err);
