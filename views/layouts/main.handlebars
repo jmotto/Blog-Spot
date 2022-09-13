@@ -4,29 +4,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Spot</title>
-  {{!-- <link rel="stylesheet" href="/css/jass.css"> --}}
+  <title>Tech Blog Spot</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
-      Blog Spot
-    </h1>
-    <nav>
-       
+  <header class="text-med bg-lime-600 text-white flex">
+    
+   
+      <h1>
+        <a href="/" class="px-4 py-3 block hover:bg-lime-500">
+      Tech Blog Spot
+      </a>
+      </h1>
+      <nav class="ml-auto flex"></nav>
         {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
+        
+        {{!-- <a href="/profile">profile</a>  --}}
+        <button class="no-button px-4 py-3 block hover:bg-lime-500" id="logout">Logout</button>
         {{else}}
-        <a href="/login">login</a>
+        <a href="/login" class="px-4 py-3 block hover:bg-lime-500">Login</a>
 
-        <a href="/signUp"> Sign Up</a>
+        <a href="/signup" class="px-4 py-3 block hover:bg-lime-500">Sign Up</a>
         {{/if}}
       </nav>
   </header>
   <main class="container container-fluid mt-5">
-    {{{ post.body }}}
+    {{{ body }}}
   </main>
   <footer>
       

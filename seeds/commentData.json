@@ -1,1 +1,7 @@
-[]
+[ 
+    {
+        "post_id": 1,
+        "description": "Test comment",
+        "user_id": 1
+    }
+]

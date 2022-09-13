@@ -3,22 +3,6 @@ const { User, Post, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
 // Route "/"
-// router.get('/', withAuth, async (req, res) => {
-//   try {
-//     const postData = await User.findAll({
-//       attributes: { exclude: ['password'] }
-//     });
-
-//     const users = postData.map((project) => project.get({ plain: true }));
-
-//     res.render('homepage', {
-//       users,
-//       logged_in: req.session.logged_in,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 router.get("/", async (req, res) => {
   try {
@@ -32,6 +16,8 @@ router.get("/", async (req, res) => {
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
+
+    console.log(posts);
 
     res.render("homepage", {
       posts,
@@ -52,12 +38,12 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.get("/signUp", (req, res) => {
+router.get("/signup", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/dashboard");
     return;
   }
-  res.render("signUp");
+  res.render("signup");
 });
 
 // Route "/dashboard"
@@ -71,7 +57,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
     const users = userData.get({ plain: true });
 
     res.render("dashboard", {
-      users,
+      ...users,
       logged_in: true,
     });
   } catch (err) {
@@ -92,14 +78,16 @@ router.get("/post/:id", async (req, res) => {
           model: User,
           attributes: ["username"],
         },
-        { model: Comment, include: [User] },
+        { model: Comment, 
+          include: [User] 
+        },
       ],
     });
 
     const post = postData.get({ plain: true });
 
     res.render("post", {
-      post,
+      ...post,
       logged_in: req.session.logged_in,
     });
   } catch (err) {

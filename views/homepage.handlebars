@@ -9,7 +9,7 @@
 
   <div class="col-md-6">
     <p class="newPost text-right">
-      Created by: {{blog.user.username}}
+      Created by: {{post.user.username}}
       on {{format_date post.date_created}}
     </p>
   </div>
@@ -19,5 +19,7 @@
       {{post.description}}
     </p>
   </div>
+
+
 </div>
 {{/each}}
