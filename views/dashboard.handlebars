@@ -1,17 +1,17 @@
-<div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{username}}!</h2>
+<div class="flex flex-row">
+  <div class="p-6 col-auto">
+    <h2>Welcome to you Dashboard, {{username}}!</h2>
   </div>
 </div>
 
 <div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Create a New Blog Post:</h3>
+  <div class="basis-1/2 border border-solid border-lime-700 rounded p-5">
+    <h3 class="text-xl font-bold mb-5">Create a New Blog Post:</h3>
 
-    <form class="form new-blog-form">
-      <div class="form-group">
+    <form class="form new-blog-form mb-5">
+      <div class="form-group mb-5">
         <input
-          class="form-input"
+          class="form-input form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
           type="text"
           id="post-title"
           name="post-title"
@@ -21,29 +21,36 @@
 
       <div class="form-group">
         <textarea
-          class="form-input"
+          class="form-input form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
           id="post-desc"
           name="post-desc"
           placeholder="Blog Content"
         ></textarea>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn bg-lime-500 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded btn btn-primary">Create</button>
       </div>
     </form>
   </div>
 
   {{#if posts.length}}
-    <div class="col-md-6 blog-list">
-      <h3>Current Blog Posts:</h3>
+    <div class="mb-5 blog-list">
+      <h3 class="p-6 col-auto"></h3>Current Blog Posts:</h3>
 
       {{#each posts as |post|}}
-        <div class="row mb-2">
-          <div class="col-md-8">
-            <h4><a href="/blog/{{post.id}}">{{post.title}}</a></h4>
+        <div class="block rounded-lg shadow-lg bg-white max-w-sm text-center">
+          <div class="mb-5">
+            <h4 class="font-bold leading-tight text-3xl mt-0 mb-2 py-3 px-6 border-b border-gray-300"><a href="/blog/{{post.id}}">{{post.title}}</a></h4>
           </div>
-          <div class="col-md-4">
-            <button class="btn btn-danger" data-id="{{post.id}}">DELETE</button>
+          <p class="py-3 px-6 border-b border-gray-300"><a href="/blog/{{post.id}}">{{post.description}}</a></p>
+          
+          <div class="py-3 px-6 border-t border-gray-300 text-gray-600">
+             <p class="newPost text-center">
+             Created on {{format_date post.date_created}}
+            </p>
+         </div>
+         <div class="p-6">
+            <button class="btn bg-black hover:bg-lime-700 text-white font-bold py-2 px-4 rounded btn btn-primary" data-id="{{post.id}}">DELETE</button>
           </div>
         </div>
       {{/each}}
@@ -52,3 +59,5 @@
 </div>
 
 <script src="/js/dashboard.js"></script>
+
+
