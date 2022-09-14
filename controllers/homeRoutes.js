@@ -54,23 +54,6 @@ router.get("/post/:id", async (req, res) => {
   }
 });
 
-// Route "/login"
-router.get("/login", (req, res) => {
-  // If a session exists, redirect the request to the homepage
-  if (req.session.logged_in) {
-    res.redirect("/");
-    return;
-  }
-  res.render("login");
-});
-
-router.get("/signup", (req, res) => {
-  if (req.session.logged_in) {
-    res.redirect("/dashboard");
-    return;
-  }
-  res.render("signup");
-});
 
 // Route "/dashboard"
 router.get("/dashboard", withAuth, async (req, res) => {
@@ -91,6 +74,23 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
+// Route "/login"
+router.get("/login", (req, res) => {
+  // If a session exists, redirect the request to the homepage
+  if (req.session.logged_in) {
+    res.redirect("/");
+    return;
+  }
+  res.render("login");
+});
+
+router.get("/signup", (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect("/dashboard");
+    return;
+  }
+  res.render("signup");
+});
 
 // Route "/dashboard/edit/:id"
 
