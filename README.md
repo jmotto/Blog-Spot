@@ -1,7 +1,7 @@
 # Tech Blog Spot
 
  ## Description
-  The Tech Blog Spot is an application built a place where developers can publish their blog posts and comment on other developers’ posts as well.  This application follows the MVC paradigm in its architectural structure, uses Handlebars.js as the template language, Sequelize as the ORM, and the express-session npm package for authentication.
+  The Tech Blog Spot is an application built to create a place where developers can publish their blog posts and comment on other developers’ posts as well.  This application follows the MVC paradigm in its architectural structure, uses Handlebars.js as the template language, Sequelize as the ORM, and the express-session npm package for authentication.
 
   ## Table of Contents
   * [Installation](#installation)
