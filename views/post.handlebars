@@ -1,0 +1,47 @@
+<div class="text row mt-4">
+  <div class="container basis-1/2 border border-solid border-lime-700 rounded p-5">
+    <div class="bg-stone-200 px-3 py-2 border-black">
+    <h2 class="postTitle text-uppercase">{{title}}
+      <p class="newPost text-right">
+         Created by: {{user.username}}
+      </p>
+    </h2>
+  
+  </div>
+  <div class="col-md-6 px-6 py-6">
+    <p class="postDesc text-center">
+      {{description}}
+    </p>
+  </div>
+ </div>
+
+     {{#if logged_in}}
+    <form class="new-comment-form mb-5">
+      <div class="form-group mb-5">
+        <input
+          class="form-input form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+          type="text"
+          id="comment_description"
+          name="comment-body"
+          placeholder="Add comment here."
+        />
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn bg-lime-500 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded btn btn-primary">Add Comment</button>
+      </div>
+    </form>
+ 
+    {{/if}}
+
+    <h2 class="text-center">Comments</h2>
+      {{#each comment as |comment|}}
+        <div class="comment block rounded-lg shadow-lg bg-white max-w-sm text-center">
+         <p class="comment-description text center">{{comment.comment_description}}</p>
+         <p class="comment-user text-center">Created by: {{comment.user.username}} </p>
+        </div>
+      {{/each}}
+    </div>
+
+</div>
+<script src="/js/comments.js"></script>
