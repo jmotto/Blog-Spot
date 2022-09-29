@@ -1,25 +1,24 @@
-<div class="grid-cols-3 border-black">
-  {{#each posts as |post| }}
+<div class="grid-cols-3">
+    {{#each posts as |post| }}
 
+    <div class="container basis-1/2 border border-solid border-lime-700 rounded p-5 m-5">
+      <div class="bg-lime-200 px-3 py-2">
+    
+          <a href="/post/{{post.id}}" class="postTitle text-center text-xl font-bold p-5 px-4 py-3 block hover:bg-lime-400" >{{post.title}}</a>
 
-  <div class="bg-stone-200 px-3 py-2 border-black">
-    <h2>
-      <a class="postTitle text-uppercase" href="/post/{{post.id}}">{{post.title}}</a>
+          <p class="newPost text-right">
+            Created by: {{post.user.username}}
+            on {{format_date post.date_created}}
+          </p>
+        
+      </div>
 
-      <p class="newPost text-right">
-        Created by: {{post.user.username}}
-        on {{format_date post.date_created}}
-      </p>
-    </h2>
-  
-  </div>
-  <div class="col-md-6 px-6 py-6">
-    <p class="postDesc text-center">
-      {{post.description}}
-    </p>
-  </div>
-
-
-
-{{/each}}
+      <div class="col-md-6 px-6 py-6">
+        <p class="postDesc text-center">
+          {{post.description}}
+        </p>
+      </div>
+    </div>
+ 
+    {{/each}}
 </div>
