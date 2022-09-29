@@ -1,25 +1,32 @@
 <div class="text row mt-4">
-    <div class="container basis-1/2 border border-solid border-lime-700 rounded p-5 m-5">
-        <div class="bg-lime-200 px-3 py-2">
-            <h2 class="postTitle text-center text-xl font-bold p-5 px-4 py-3 block">{{title}}
-            </h2>
+  <div
+    class="container basis-1/2 border border-solid border-lime-700 rounded p-5 m-5"
+  >
+    <div class="bg-lime-200 px-3 py-2">
+      <h2
+        class="postTitle text-center text-xl font-bold p-5 px-4 py-3 block"
+      >{{title}}
+      </h2>
 
-            <p class="newPost text-right">
-            Created by: {{user.username}}
-            </p>
-        </div>
-
-        <div class="col-md-6 px-6 py-6">
-            <p class="postDesc text-center">
-            {{description}}
-            </p>
-        </div>
+      <p class="newPost text-right">
+        Created by:
+        {{user.username}}
+      </p>
     </div>
 
+    <div class="col-md-6 px-6 py-6">
+      <p class="postDesc text-center">
+        {{description}}
+      </p>
+    </div>
+  </div>
+
 </div>
- 
-<div class="container basis-1/2 border border-solid border-lime-700 rounded p-5 m-5">
-    {{#if logged_in}}
+
+<div
+  class="container basis-1/2 border border-solid border-lime-700 rounded p-5 m-5"
+>
+  {{#if logged_in}}
 
     <form class="new-comment-form mb-5">
       <div class="form-group mb-5">
@@ -33,23 +40,27 @@
       </div>
 
       <div class="form-group">
-            <button type="submit" class="btn bg-lime-500 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded btn btn-primary">Add Comment</button>
+        <button
+          type="submit"
+          class="btn bg-lime-500 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded btn btn-primary"
+        >Add Comment</button>
       </div>
     </form>
- 
-    {{/if}}
 
-    <div>
-        <h2 class="text-center text-xl font-bold p-5 px-4 py-3 block">Comments</h2>
-        {{#each comments as |comment|}}
-            <div class="comment block">
-                <p class="comment-description text center">{{comment.comment_description}}</p>
-                <p class="comment-user text-center">{{comment.username}} </p>
-            </div>
+  {{/if}}
+</div>
+{{#each comments as |comment|}}
+  <div>
+    <h2 class="text-center text-xl font-bold p-5 px-4 py-3 block">Comments</h2>
 
-        
-        {{/each}}
+    <div class="comment block">
+      <p
+        class="comment_description text center" id="comment_description"
+      >{{comment.comment_description}}</p>
+      <p class="comment-user text-center">{{comment.username}} </p>
     </div>
 
-</div>
+  </div>
+{{/each}}
+
 <script src="/js/comments.js"></script>
