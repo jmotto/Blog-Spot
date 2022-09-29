@@ -40,11 +40,13 @@
 
     <div>
         <h2 class="text-center text-xl font-bold p-5 px-4 py-3 block">Comments</h2>
-        {{#each comment as |comment|}}
-            <div class="comment block rounded-lg shadow-lg bg-white max-w-sm text-center">
-                <p class="comment-description text center">{{comment.comment_description}}</p>
+        {{#each comments as |comment|}}
+            <div class="comment block">
+                <p class="comment-description text center">{{comment.user.comment_description}}</p>
                 <p class="comment-user text-center">Created by: {{comment.user.username}} </p>
             </div>
+
+        
         {{/each}}
     </div>
 

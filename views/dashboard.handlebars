@@ -1,11 +1,13 @@
 <div class="flex flex-row">
   <div class="p-6 col-auto">
-    <h2>Welcome to your Dashboard, {{username}}!</h2>
+    <h2 class="text-lg">Welcome to your Dashboard, {{username}}!</h2>
   </div>
 </div>
 
 <div class="post row mt-4">
-  <div class="basis-1/2 border border-solid border-lime-700 rounded p-5">
+  <div
+    class="container basis-1/2 border border-solid border-lime-700 rounded p-5 m-5"
+  >
     <h3 class="text-xl font-bold mb-5">Create a New Blog Post:</h3>
 
     <form class="form new-blog-form mb-5">
@@ -28,36 +30,51 @@
         ></textarea>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn bg-lime-500 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded btn btn-primary">Create</button>
+        <button
+          type="submit"
+          class="btn bg-lime-500 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded btn btn-primary"
+        >Create</button>
       </div>
     </form>
   </div>
 
   {{#if posts.length}}
-    <div class="mb-5 blog-list">
-      <h3 class="p-6 col-auto"></h3>Current Blog Posts:</h3>
-
+    <div class="blog-list p-5">
+      <h3 class="text-lg">Your Blog Posts:</h3>
+    </div>
+    <div class="flex">
       {{#each posts as |post|}}
-        <div class="block rounded-lg shadow-lg bg-white max-w-sm text-center">
+
+        <div
+          class="flex-col block border border-solid border-lime-700 rounded-lg shadow-lg bg-white max-w-sm text-center p-5 m-5"
+        >
           <div class="mb-5">
-            <h4 class="font-bold leading-tight text-3xl mt-0 mb-2 py-3 px-6 border-b border-gray-300"><a href="/blog/{{post.id}}">{{post.title}}</a></h4>
+            <h4
+              class="font-bold leading-tight text-3xl mt-0 mb-2 py-3 px-6 border-b border-gray-300"
+            ><a href="/post/{{post.id}}">{{post.title}}</a></h4>
           </div>
-          <p class="py-3 px-6 border-b border-gray-300"><a href="/blog/{{post.id}}">{{post.description}}</a></p>
-          
+          <p class="py-3 px-6 border-b border-gray-300"><a
+              href="/blog/{{post.id}}"
+            >{{post.description}}</a></p>
+
           <div class="py-3 px-6 border-t border-gray-300 text-gray-600">
-             <p class="newPost text-center">
-             Created on {{format_date post.date_created}}
+            <p class="newPost text-center">
+              Created on
+              {{format_date post.date_created}}
             </p>
-         </div>
-         <div class="p-6">
-            <button class="btn bg-black hover:bg-lime-700 text-white font-bold py-2 px-4 rounded btn btn-primary" data-id="{{post.id}}">DELETE</button>
+          </div>
+          <div class="p-6">
+            <button
+              class="btn bg-black hover:bg-lime-700 text-white font-bold py-2 px-4 rounded btn btn-primary"
+              data-id="{{post.id}}"
+            >DELETE</button>
           </div>
         </div>
+
       {{/each}}
     </div>
+
   {{/if}}
 </div>
 
 <script src="/js/dashboard.js"></script>
-
-

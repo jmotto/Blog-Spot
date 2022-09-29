@@ -1,16 +1,23 @@
 <div class="grid-cols-3">
-    {{#each posts as |post| }}
+  {{#each posts as |post|}}
 
-    <div class="container basis-1/2 border border-solid border-lime-700 rounded p-5 m-5">
+    <div
+      class="container basis-1/2 border border-solid border-lime-700 rounded p-5 m-5"
+    >
       <div class="bg-lime-200 px-3 py-2">
-    
-          <a href="/post/{{post.id}}" class="postTitle text-center text-xl font-bold p-5 px-4 py-3 block hover:bg-lime-400" >{{post.title}}</a>
 
-          <p class="newPost text-right">
-            Created by: {{post.user.username}}
-            on {{format_date post.date_created}}
-          </p>
-        
+        <a
+          href="/post/{{post.id}}"
+          class="postTitle text-center text-xl font-bold p-5 px-4 py-3 block hover:bg-lime-400"
+        >{{post.title}}</a>
+
+        <p class="newPost text-right">
+          Created by:
+          {{post.user.username}}
+          on
+          {{format_date post.date_created}}
+        </p>
+
       </div>
 
       <div class="col-md-6 px-6 py-6">
@@ -19,6 +26,6 @@
         </p>
       </div>
     </div>
- 
-    {{/each}}
+
+  {{/each}}
 </div>
