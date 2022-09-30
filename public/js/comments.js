@@ -6,7 +6,7 @@ const commentFormHandler = async function (event) {
     const comment_description = document.querySelector('#comment_description').value.trim();
 
     if ( comment_description) {
-        await fetch('/api/comments', {
+        const response = await fetch('/api/comments', {
             method: 'POST',
             body: JSON.stringify({
                 post_id,
@@ -16,7 +16,12 @@ const commentFormHandler = async function (event) {
                 'Content-Type': 'application/json'
             }
         });
-        document.location.reload();
+        if (response.ok) {
+            document.location.reload();
+          } else {
+            alert("failed to create comment");
+          }
+        
     }
 };
 
