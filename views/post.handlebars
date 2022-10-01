@@ -48,6 +48,7 @@
           class="btn bg-lime-500 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded btn btn-primary"
         >Add Comment</button>
       </div>
+
     </form>
 
   {{/if}}
@@ -55,15 +56,15 @@
 
   <div class="commentData">
     <h2 class="text-center text-xl font-bold p-5 px-4 py-3 block">Comments</h2>
-{{#each comments as |comment|}}
+    {{#each comments as |comment|}}
     <div class="newComment basis-1/2 border border-solid border-lime-700 rounded p-5 m-5">
-      <p
-        class="comment_description text-center" id="comment_description"
+      <p class="comment_description text-center" id="comment_description"
       >{{comment.description}}</p>
-      <p class="comment-user text-right">posted by: {{user.username}} </p>
+      <p class="comment-user text-right">posted by: {{user.username}} on  {{format_date comment.date_created}}
     </div>
-
+    {{/each}}
+     
   </div>
-{{/each}}
+
 
 <script src="/js/comments.js"></script>

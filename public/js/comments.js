@@ -27,6 +27,22 @@ const commentFormHandler = async function (event) {
     }
 };
 
+const delButtonHandler = async (event) => {
+    if (event.target.hasAttribute("data-id")) {
+      const id = event.target.getAttribute("data-id");
+  
+      const response = await fetch(`/api/posts/${post_id}`, {
+        method: "DELETE",
+      });
+  
+      if (response.ok) {
+        document.location.replace("/");
+      } else {
+        alert("failed to delete post");
+      }
+    }
+  };
+
 document
 	.querySelector('.new-comment-form')
 	.addEventListener('submit', commentFormHandler);

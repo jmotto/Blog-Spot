@@ -46,8 +46,7 @@
       {{#each posts as |post|}}
 
         <div
-          class="flex-col block border border-solid border-lime-700 rounded-lg shadow-lg bg-white max-w-sm text-center p-5 m-5"
-        >
+          class="flex-col block border border-solid border-lime-700 rounded-lg shadow-lg bg-white max-w-sm text-center p-5 m-5">
           <div class="mb-5">
             <h4
               class="font-bold leading-tight text-3xl mt-0 mb-2 py-3 px-6 border-b border-gray-300 hover:bg-lime-400"
@@ -63,9 +62,8 @@
               {{format_date post.date_created}}
             </p>
           </div>
-          <div class="blog-list p-6">
+          <div class="p-6">
             <button
-              type="click"
               class="btn bg-black hover:bg-lime-700 text-white font-bold py-2 px-4 rounded btn-primary"
               data-id="{{post.id}}"
             >DELETE</button>
