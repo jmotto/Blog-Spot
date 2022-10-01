@@ -1,6 +1,7 @@
 <div class="text row mt-4">
   <div
     class="container basis-1/2 border border-solid border-lime-700 rounded p-5 m-5"
+  
   >
     <div class="bg-lime-200 px-3 py-2">
       <h2
@@ -28,7 +29,9 @@
 >
   {{#if logged_in}}
 
-    <form class="new-comment-form mb-5">
+    <form class="new-comment-form mb-5"
+      id={{post_id}}
+    >
       <div class="form-group mb-5">
         <input
           class="form-input form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
@@ -49,15 +52,15 @@
 
   {{/if}}
 </div>
-{{#each comments as |comment|}}
+
   <div class="commentData">
     <h2 class="text-center text-xl font-bold p-5 px-4 py-3 block">Comments</h2>
-
-    <div class="newComment block">
+{{#each comments as |comment|}}
+    <div class="newComment basis-1/2 border border-solid border-lime-700 rounded p-5 m-5">
       <p
-        class="comment_description text center" id="comment_description"
-      >{{comment.comment_description}}</p>
-      <p class="comment-user text-center">{{comment.username}} </p>
+        class="comment_description text-center" id="comment_description"
+      >{{comment.description}}</p>
+      <p class="comment-user text-right">posted by: {{user.username}} </p>
     </div>
 
   </div>
